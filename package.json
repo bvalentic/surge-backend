@@ -2,6 +2,7 @@
   "name": "surge-backend",
   "version": "1.0.0",
   "description": "Back-end for Surge app.",
+  "type": "commonjs",
   "main": "server.js",
   "scripts": {
     "test": "node server.js",
