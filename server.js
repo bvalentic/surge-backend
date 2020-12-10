@@ -1,8 +1,10 @@
 var express = require('express');
 var { graphqlHTTP } = require('express-graphql');
+var cors = require('cors');
 const Schema = require('./schema');
 
 let outbreaks = [];
+let port = 4000;
  
 // Construct a schema, using GraphQL schema language
 var schema = new Schema().createSchema();
@@ -27,10 +29,13 @@ var root = {
 };
 
 var app = express();
+app.use(cors());
 app.use('/graphql', graphqlHTTP({
     schema: schema,
     rootValue: root,
     graphiql: true,
 }));
-app.listen(4000);
-console.log('Running a GraphQL API server at http://localhost:4000/graphql');
+app.listen(port, () => {
+  console.log(`Running a GraphQL API server at http://localhost:${port}/graphql`);
+});
+
