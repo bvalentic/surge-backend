@@ -34,8 +34,8 @@ app.use('/graphql', graphqlHTTP({
     schema: schema,
     rootValue: root,
     graphiql: true,
-}));
+  })
+);
 app.listen(port, () => {
   console.log(`Running a GraphQL API server at http://localhost:${port}/graphql`);
 });
-
